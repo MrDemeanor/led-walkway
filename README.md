@@ -7,11 +7,11 @@
 <h2>Table of contents</h2>
 <p>
   <ul>
-    <li><a href="">Overview</a></li>
+    <li><a href="https://github.com/MrDemeanor/led-walkway#overview">Overview</a></li>
         <ul>
-            <li><a href="">Parts List</a></li>
+            <li><a href="https://github.com/MrDemeanor/led-walkway#parts-list">Parts List</a></li>
         </ul>
-    <li><a href="">Getting Started</a></li>
+    <li><a href="https://github.com/MrDemeanor/led-walkway#getting-started">Getting Started</a></li>
   </ul>
 </p>
 
@@ -37,13 +37,13 @@
     Get 4 HC-SR04 Ultrasonic Distance Sensors and connect them to the Arduino Uno according to the following schematic: 
 </p>
 
-<img src="./images/schematic.png">
+<img align="center" src="./images/schematic.png">
 
 <p>
     Now take one of your mosfets, and connect the <strong>gate</strong> pin (the leftmost pin, refer to the right mosfet below) to pin 10 on the Arduino. Take three more mosfets and do the same for pins 11, 12 and 13.
 </p>
 
-<img src="./images/mosfet.jpeg">
+<img align="center" src="./images/mosfet.jpeg">
 
 <p>
   This is a PlatformIO project. Ensure that you first have VS Code installed, and then download the PlatformIO extension. 

@@ -21,7 +21,7 @@ int hc_sr04_pins[4][4] = {
 void setup() {
 
   // Initialize all pins
-  for(int i = 0 ; i < sizeof(hc_sr04_pins) / sizeof(hc_sr04_pins)[0] ; i++) {
+  for(uint8_t i = 0 ; i < sizeof(hc_sr04_pins) / sizeof(hc_sr04_pins)[0] ; i++) {
     pinMode(hc_sr04_pins[i][0], INPUT); 
     pinMode(hc_sr04_pins[i][1], OUTPUT);
     pinMode(hc_sr04_pins[i][2], OUTPUT);
@@ -30,13 +30,13 @@ void setup() {
 }
 
 void loop() {
-  for(int i = 0 ; i < sizeof(hc_sr04_pins) / sizeof(hc_sr04_pins)[0] ; i++) {
+  for(uint8_t i = 0 ; i < sizeof(hc_sr04_pins) / sizeof(hc_sr04_pins)[0] ; i++) {
     
     // Extract variables from HC_SR04 array
-    int echo_pin    = hc_sr04_pins[i][0];
-    int trig_pin    = hc_sr04_pins[i][1]; 
-    int fet_pin     = hc_sr04_pins[i][2]; 
-    int brightness  = hc_sr04_pins[i][3]; 
+    uint8_t echo_pin    = hc_sr04_pins[i][0];
+    uint8_t trig_pin    = hc_sr04_pins[i][1]; 
+    uint8_t fet_pin     = hc_sr04_pins[i][2]; 
+    uint8_t brightness  = hc_sr04_pins[i][3]; 
 
     // Clear the trigger pin
     digitalWrite(trig_pin, LOW); 
@@ -49,7 +49,7 @@ void loop() {
 
     // Check to see if someone is standing with max_distance cm of the sensor
     if(pulseIn(echo_pin, HIGH) * 0.034 / 2 < max_distance) {
-      brightness = (brightness < 255) ? (brightness + 3) : brightness; 
+      brightness = (brightness < INT8_MAX) ? (brightness + 3) : brightness; 
     } else {
       brightness = (brightness > 0) ? (brightness - 1) : brightness;
     }
